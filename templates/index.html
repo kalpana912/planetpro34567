@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Features</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<style>
+    .nav-item
+{
+/*width:80%;*/
+margin:0 20px;
+
+}
+.navbar-brand
+{
+/*width:80%;*/
+margin:0 250px 0 30px;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+
+
+body{
+   background: url("{% static 'images/bg4gif.gif' %}");
+  
+    }
+
+</style>
+<script>
+  $(document).ready(function(){
+      $("#myModal").modal('show');
+  });
+</script>  
+
+
+</head>
+
+<!------------------------------------------body section----------------------------------------->
+
+
+    
+    <body style="height: 100%;background-position: center;
+    background-repeat:no-repeat;background-size:cover;">
+
+        <!---------------------navbar--------------------------->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">Galatic jobs</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">How it works</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/features/">Features</a>
+                  </li>
+
+            
+
+          <!--       <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Contact us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                       {% for c in con %}
+                      <li><a class="dropdown-item" href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                       {% endfor %}
+                    </ul>
+                  </li>--> 
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Contact us
+                    </a>
+                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: darkgray;">
+                     
+                      <li><a class="dropdown-item social-icons" href="https://www.facebook.com/" target="_blank">Facebook<i class="fab fa-facebook"></i></a></a></li>
+                      <li><a class="dropdown-item social-icons" href="https://www.instagram.com/kalpana91295" target="_blank">instagram<i class="fab fa-instagram"></i></a></a></li>
+                      <li><a class="dropdown-item social-icons" href="https://www.twitter.com/" target="_blank">twitter<i class="fab fa-twitter"></i></a></a></li>
+                     
+                  </ul>
+                </li>
+                  
+                  
+                </ul>
+                <form class="d-flex">
+                  <button type="button" class="btn btn-primary" style="border-radius:20px;margin-right: 20px;">Read more</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+
+        <!-----------------main heading-------------------->  
+    
+             
+        <div>     
+        <h1 style="color: aliceblue;text-align: center;margin-top: 10%;margin-left:75px;text-shadow:5px 8px 9px rgb(243, 244, 238);">Welcome to Galactic Jobs</h1>
+        
+       
+            <h6 style="color: aliceblue;text-align: center;margin-top: 20px;margin-left:75px;">Are you a tech trainer, influencer or expert?</h6>
+            <!--default value (Are you a tech trainer, influencer or expert?)-->
+            
+       </div>
+
+
+       <!--------------------------------modal---------------------------->
+
+ 
+
+    <div class="modal" id="myModal" tabindex="-1" >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">User Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="/addUser/">
+          
+              {% csrf_token %}
+              <div class="form-group">
+                <label>Name</label>
+                  <input type="text" name="name" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label>Contact number</label>
+                  <input type="text" name="mobileNumber" maxlength="10" class="form-control" placeholder="mobile number">
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                  <input type="email" name="mail" class="form-control" placeholder="abc@gmail.com">
+              </div>
+              <br>
+              <button type="submit" id="submitBtn" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+          </form>
+          </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>  
+        
+        </div>
+      </div>
+    </div>
+    </body>
+
+
+       
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+        
+    
+  
+    
+           
+    </html>
